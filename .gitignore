@@ -1,2 +1,7 @@
-*.msi
+*.cache
+*~
+
 *.nupkg
+.DS_Store
+temp/
+output/

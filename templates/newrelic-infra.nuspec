@@ -3,14 +3,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>newrelic-infra</id>
-    <version>1.22.0</version>
+    <version>##VERSION##</version>
     <packageSourceUrl>https://github.com/ripclawffb/chocolatey-newrelic-infra</packageSourceUrl>
     <owners>Asif Shaikh</owners>
     <title>New Relic Infrastructure (Install)</title>
-    <authors>New Relic</authors>
-    <projectUrl>https://newrelic.com/</projectUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/ripclawffb/chocolatey-packages@master/icons/newrelic-infra.png</iconUrl>
-    <copyright>2008 - 2022</copyright>
+    <authors>NewRelic</authors>
+    <projectUrl>https://www.newrelic.com/</projectUrl>
+    <iconUrl>https://newrelic.com/themes/custom/erno/assets/mediakit/new_relic_logo_horizontal.png</iconUrl>
+    <copyright>2008 - 2024</copyright>
     <licenseUrl>https://docs.newrelic.com/docs/licenses/overview</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <docsUrl>https://docs.newrelic.com/docs/infrastructure/new-relic-infrastructure/getting-started/introduction-new-relic-infrastructure</docsUrl>
@@ -46,7 +46,7 @@ https://docs.newrelic.com/docs/infrastructure/install-configure-manage-infrastru
 To pass parameters, use `--params "''"` (e.g. `choco install packageID [other options] --params="'/ITEM:value /ITEM2:value2 /FLAG_BOOLEAN'"`).
 To have choco remember parameters on upgrade, be sure to set `choco feature enable -n=useRememberedArgumentsForUpgrades`.
 ]]></description>
-    <releaseNotes>https://docs.newrelic.com/docs/release-notes/infrastructure-release-notes/infrastructure-agent-release-notes</releaseNotes>
+    <releaseNotes>##RELEASENOTES##</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

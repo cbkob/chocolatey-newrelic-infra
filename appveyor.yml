@@ -1,0 +1,18 @@
+version: 1.0.{build}
+
+platform:
+  - x64
+  
+build_script:
+  - ps: >-
+      ./newrelic-infra.ps1;
+      choco pack output/newrelic-infra.nuspec
+
+test_script:
+  - ps: cinst newrelic-infra  --version $env:NUPKG_VERSION -fdvy -source "$pwd;http://chocolatey.org/api/v2/"
+  - ps: cuninst -fdvy newrelic-infra
+  - ps: cinst newrelic-infra --version $env:NUPKG_VERSION -fdvy --x86 -source "$pwd;http://chocolatey.org/api/v2/"
+  - ps: cuninst -fdvy newrelic-infra 
+
+artifacts:
+  - path: '**\*.nupkg'
