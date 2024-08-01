@@ -41,6 +41,7 @@ build_script:
     $ErrorActionPreference = 'Continue'
 
     ./update_all.ps1 -ForcedPackages $forced
+    ls newrelic-infra
     7z a au_temp.zip $Env:TEMP\chocolatey\au\*
 
 artifacts:
