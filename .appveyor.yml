@@ -45,5 +45,9 @@ build_script:
     popd
     ls
 
+test_script:
+  - ps: cinst newrelic-infra  --version $env:NUPKG_VERSION -fdvy -source "$pwd;http://chocolatey.org/api/v2/"
+  - ps: cuninst -fdvy newrelic-infra
+
 artifacts:
   - path: '**\*.nupkg'
