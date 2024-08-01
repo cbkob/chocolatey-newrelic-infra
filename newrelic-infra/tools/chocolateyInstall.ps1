@@ -1,4 +1,5 @@
-﻿$ErrorActionPreference = 'Stop';
+$ErrorActionPreference = 'Stop';
+$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $additionalArgs = ''
 $packageParameters = Get-PackageParameters
@@ -34,24 +35,16 @@ if(Get-Variable -Name GenerateConfig -ErrorAction SilentlyContinue) {
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 
 $packageName     = 'newrelic-infra'
-$softwareName    = 'newrelic-infra*'
-
-$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url64      = 'https://download.newrelic.com/infrastructure_agent/windows/newrelic-infra.1.22.0.msi'
 
 $packageArgs = @{
   packageName   = $packageName
-  unzipLocation = $toolsDir
-  fileType      = 'MSI'
-  url64bit      = $url64
-
-  softwareName  = $softwareName
-
+  fileType      = 'msi'
+  url64bit      = 'https://download.newrelic.com/infrastructure_agent/windows/newrelic-infra.1.22.0.msi'
   checksum64     = '0259d23117e546fd4fe5713f85654cc2cccd6b8ca37dbfa1ba064840380e7227'
   checksumType64 = 'sha256'
-
   silentArgs    = "/qn $additionalArgs /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
   validExitCodes= @(0, 3010, 1641)
+  softwareName  = 'newrelic-infra*'
 }
 
 Install-ChocolateyPackage @packageArgs

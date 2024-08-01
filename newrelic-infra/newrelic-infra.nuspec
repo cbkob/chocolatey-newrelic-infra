@@ -46,7 +46,7 @@ https://docs.newrelic.com/docs/infrastructure/install-configure-manage-infrastru
 To pass parameters, use `--params "''"` (e.g. `choco install packageID [other options] --params="'/ITEM:value /ITEM2:value2 /FLAG_BOOLEAN'"`).
 To have choco remember parameters on upgrade, be sure to set `choco feature enable -n=useRememberedArgumentsForUpgrades`.
 ]]></description>
-    <releaseNotes>##RELEASENOTES##</releaseNotes>
+    <releaseNotes>https://docs.newrelic.com/docs/release-notes/infrastructure-release-notes/infrastructure-agent-release-notes</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
