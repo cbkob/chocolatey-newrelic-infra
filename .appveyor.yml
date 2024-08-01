@@ -39,6 +39,7 @@ install:
 build_script:
 - ps: |
     $ErrorActionPreference = 'Continue'
+    pushd
     ./update.ps1
     ls
     choco pack
