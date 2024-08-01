@@ -11,11 +11,8 @@ branches:
 #  verbosity: minimal
 
 environment:
-  # Set au version to use or omit to use the latest. Specify branch name to use development version from Github
+  # Set au version to use or omit to use the latest.
   au_version:
-  au_push: true
-  # Force test: use 1 to test all, or N to split testing into N groups
-  au_test_groups: 1
 
 install:
 - ps: 'Get-CimInstance win32_operatingsystem -Property Caption, OSArchitecture, Version | fl Caption, OSArchitecture, Version'
@@ -41,9 +38,7 @@ build_script:
     pushd newrelic-infra
     ./update.ps1
     choco pack
-    ls
     popd
-    ls
 
 test_script:
   - ps: choco install newrelic-infra --source="'.;https://chocolatey.org/api/v2'" -dvy
