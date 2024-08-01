@@ -13,7 +13,6 @@ branches:
 environment:
   # Set au version to use or omit to use the latest.
   au_version:
-  au_NoCheckChocoVersion: true
 
 install:
 - ps: 'Get-CimInstance win32_operatingsystem -Property Caption, OSArchitecture, Version | fl Caption, OSArchitecture, Version'
@@ -37,6 +36,7 @@ build_script:
 - ps: |
     $ErrorActionPreference = 'Continue'
     pushd newrelic-infra
+    $au_NoCheckChocoVersion = $true
     ./update.ps1
     choco pack
     popd
