@@ -46,8 +46,8 @@ build_script:
     ls
 
 test_script:
-  - ps: cinst newrelic-infra  --version $env:NUPKG_VERSION -fdvy -source "$pwd;http://chocolatey.org/api/v2/"
-  - ps: cuninst -fdvy newrelic-infra
+  - ps: choco install newrelic-infra --source="'.;https://chocolatey.org/api/v2'" -dvy
+  - ps: choco uninstall newrelic-infra -dvy
 
 artifacts:
   - path: '**\*.nupkg'
