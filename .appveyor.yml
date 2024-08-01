@@ -39,8 +39,10 @@ install:
 build_script:
 - ps: |
     $ErrorActionPreference = 'Continue'
-    ./update_all.ps1 -ForcedPackages $forced
-    choco pack newrelic-infra/newrelic-infra.nuspec
+    ./update.ps1
+    ls
+    choco pack
+    ls
 
 artifacts:
   - path: '**\*.nupkg'
