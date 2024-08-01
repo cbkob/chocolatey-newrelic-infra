@@ -5,8 +5,8 @@ $releases = 'https://nr-downloads-main.s3.amazonaws.com/?delimiter=/&prefix=infr
 function global:au_SearchReplace {
    @{
         ".\tools\chocolateyInstall.ps1" = @{
-            "(?i)(^[$]url64\s*=\s*)('.*')"        = "`$1'$($Latest.URL64)'"
-            "(checksum64\s*=\s*)('.*')"           = "`$1'$($Latest.Checksum64)'"
+            "(?i)(^\s*url64bit\s*=\s*)('.*')"   = "`$1'$($Latest.URL64)'"
+            "(?i)(^\s*checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"
         }
     }
 }
