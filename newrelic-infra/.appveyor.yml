@@ -39,10 +39,11 @@ install:
 build_script:
 - ps: |
     $ErrorActionPreference = 'Continue'
-    pushd
+    pushd newrelic-infra
     ./update.ps1
-    ls
     choco pack
+    ls
+    popd
     ls
 
 artifacts:
