@@ -16,7 +16,7 @@ environment:
   au_push: true
   # Force test: use 1 to test all, or N to split testing into N groups
   au_test_groups: 1
-
+  package_name: newrelic-infra
 
 install:
 - ps: 'Get-CimInstance win32_operatingsystem -Property Caption, OSArchitecture, Version | fl Caption, OSArchitecture, Version'
@@ -39,11 +39,8 @@ install:
 build_script:
 - ps: |
     $ErrorActionPreference = 'Continue'
-    pushd newrelic-infra
     ./update.ps1
     choco pack
-    ls
-    popd
     ls
 
 artifacts:
